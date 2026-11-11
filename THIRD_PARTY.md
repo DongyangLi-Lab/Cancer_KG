@@ -1,17 +1,5 @@
-# External components
+# External dependencies
 
-Each branch records the original internal source hashes and, when applicable,
-the official repository/checkpoint revisions. The code delivery does not
-redistribute patient datasets, biological databases or pretrained weights.
+Official repository revisions and checked source-file hashes are recorded in UPSTREAM.json. Foundation implementations and pretrained checkpoints are external assets. Generated smoke fixtures contain no patient records. Project-authored adapter licensing is left to the repository owner.
 
-- scFoundation: official source and model weights have distinct terms; follow
-  the branch UPSTREAM instructions, including non-commercial model restrictions.
-- OmicsFM and Tahoe: obtain official code, tokenizer/vocabulary and weights at
-  the pinned revisions in the relevant branch. These dependencies retain their
-  upstream notices and terms.
-- Reactome and molecular identity resources are input dependencies, not bundled
-  data. Keep release identifiers and mapping provenance when preparing graphs.
-- NumPy, SciPy, pandas, PyTorch and optional acceleration libraries retain their
-  respective licenses. Install compatible builds following branch requirements.
-
-No blanket license over third-party code or model weights is granted here.
+scFoundation source uses Apache2.0 and its parameter license restricts use to noncommercial research. OmicsFM source uses Apache2.0 and its pinned model card declares CC-BY4.0 for weights. Tahoe source and the pinned HF model card declare Apache2.0. EGSP's audited source tree supplied no LICENSE, so this delivery loads that external source by hash and excludes official class bodies. See MODEL_LICENSE_CHECK.json for pinned model-card URLs, SHA256 and declared license fields.

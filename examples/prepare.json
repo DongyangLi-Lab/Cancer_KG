@@ -1,0 +1,10 @@
+{
+  "input": "private/protein_intensity_with_role.npz",
+  "input_sha256": "REPLACE_WITH_SHA256",
+  "repo_dir": "external/OmicsFM",
+  "checkpoint": "external/proteomics/best_model.ckpt",
+  "checkpoint_sha256": "REPLACE_WITH_TRUSTED_CHECKPOINT_SHA256",
+  "fasta": "external/human_reference.fasta",
+  "fasta_sha256": "REPLACE_WITH_SHA256",
+  "output": "private/prepared_input.npz"
+}

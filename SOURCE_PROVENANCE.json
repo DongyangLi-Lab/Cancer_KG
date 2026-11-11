@@ -1,0 +1,87 @@
+{
+  "status": "frozen_best_model_candidate_pending_root_publication",
+  "clinical_rerun_performed": false,
+  "patient_data_included": false,
+  "pretrained_weights_included": false,
+  "third_party_model_implementation_vendored": false,
+  "sources": [
+    {
+      "workspace_relative_source": "outputs/pdac_head_factorial_20261022/code/models.py",
+      "source_sha256": "b437930f10604840a82144401946f8c153f1a95ad9ae8455d14bcb57d2049ba7",
+      "delivered_files": [
+        "models.py"
+      ],
+      "mode": "unchanged_source_file"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_omicsfm_20261028/code/train.py",
+      "source_sha256": "2b31dfc545a6e41b92fbba36a098c80a412b9f03d74957816a4a426efddce874",
+      "delivered_files": [
+        "train.py"
+      ],
+      "mode": "portable_input_rehost_preserves_small_head_recipe"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_omicsfm_20261028/code/encoder.py",
+      "source_sha256": "cf58a196de89c3779b27e8965ef58629783e802b7c281bed8f6286cf394cc093",
+      "delivered_files": [
+        "encoder.py"
+      ],
+      "mode": "unchanged_source_file"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_omicsfm_20261028/code/inputs.py",
+      "source_sha256": "f6b23c6261c11039422c54f744266b3d35d3dd74cc088e5dc73e35aea2f490f0",
+      "delivered_files": [
+        "binning.py"
+      ],
+      "mode": "unchanged_source_file"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_omicsfm_20261028/code/prepare_parallel.py",
+      "source_sha256": "da0c94cdc86913cd50cd1c82a5057f315caa54b180f6a33a634a55d32441dd98",
+      "delivered_files": [
+        "prepare.py"
+      ],
+      "mode": "portable_rehost_same_mapping_bins_eligibility_selection"
+    },
+    {
+      "workspace_relative_source": "outputs/egsp_pdac_execution_v2_2_20261022/pdac_faithful.py",
+      "source_sha256": "70b820c50f732b851c52110884e7ed1a6eacf70720d4723d17bc712af2281154",
+      "delivered_files": [
+        "selection.py"
+      ],
+      "mode": "AST_extract_rank_cox"
+    }
+  ],
+  "files_sha256": {
+    ".gitignore": "0ab4c881ed3923bd5a2d931cf226edb33696a2d59bd56b338b21fff4d8f08773",
+    "binning.py": "f6b23c6261c11039422c54f744266b3d35d3dd74cc088e5dc73e35aea2f490f0",
+    "contracts.py": "5ecb83c5f5ace70a44373ffd1ef25e9ba691a84844ecb04fc376debcd562f8bc",
+    "encode.py": "70669b0f282c8f0fb15badddd8bc5b0bd1d93ddfdf1339463dc80d7feb7241b7",
+    "encoder.py": "cf58a196de89c3779b27e8965ef58629783e802b7c281bed8f6286cf394cc093",
+    "examples/encode.json": "ecbb166db8787744fb0d4669f380dc09f5b2a6a8345a8c89286e0f8fe0ecb76d",
+    "examples/manifest.json": "307709c1154fedef4e76d5f8007e5f03af58eca56cfd18450503267fdcdbc740",
+    "examples/prepare.json": "07f1288886e30820d928c99af89f4eee91f985df2955fd25bc2d3b79df7c69b3",
+    "MODEL_LICENSE_CHECK.json": "e0e80973c9ea5233f44375f324ff21a022e3dd4463b512cc01a8cbb9cd74bcce",
+    "models.py": "b437930f10604840a82144401946f8c153f1a95ad9ae8455d14bcb57d2049ba7",
+    "prepare.py": "2a18475e2bca036326a00b5e6186991cf3a1ef3c5c4d93afeb66edce414f8240",
+    "README.md": "4a351dcab082dbdaae9b6b94a06e97fa057e20f298ef817e5b8b558fa427e2ac",
+    "requirements-encoder.txt": "88fa51b6dafc720025a1cb64c560d13236e11cbb2b6055d06076ecd58b9c59dd",
+    "requirements.txt": "454ae736b60b1eba1716fbcd8a0e24d03d16bf3e63d315c41cd4a25a538deef5",
+    "selection.py": "6b7538686129f20123a05b5b8c01eba719052533bf221387de0b2e8bf8157ab2",
+    "smoke.py": "3932a7076533c094c2ac64961bbdf3efa80e6a5b0ddc1f7010babdd4be303449",
+    "smoke_contracts.py": "df8c24d0e40b45f380ba3c648ec5d6c9d0c46b7fd83891352eb178501a21c330",
+    "THIRD_PARTY.md": "fc40962dc0026268a1db665b81b1b33f6eaf3e5a6bb3f4c8f30c1a7c7953c265",
+    "train.py": "fa05c5e66972ad5e4809928ebfea96780fe33c21cc9bacf11ea265ba678c6121",
+    "UPSTREAM.json": "b700211a78d39735d9734c2ab25b268028968a337090b36001ba0b39171aa3d1"
+  },
+  "portable_changes": [
+    "Private paths and manifests are caller-supplied",
+    "Explicit endpoint/ID/partition and SHA validation",
+    "Original training bodies preserved by byte-copy or AST extraction",
+    "Asset loading binds pinned external source and caller trusted weight SHA"
+  ],
+  "historical_replay_boundary": "Original private normalization/selection/cache/checkpoint/runtime manifests are additionally required for exact historical replay",
+  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors"
+}

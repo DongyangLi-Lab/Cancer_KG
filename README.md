@@ -1,68 +1,27 @@
-# Cancer_KG
+# Frozen OmicsFM proteomics with the historical small MLP
 
-Minimal runnable research code for pancreatic-cancer survival prediction,
-foundation-model representations, multi-omics fusion, and knowledge graphs.
+The executed backbone uses learned individual protein identities, native10-bin inputs, six transformer layers of width256 and final contextual real-protein-token max pooling. SST and padding are excluded. The frozen backbone is FP32 with TF32 disabled. UPSTREAM.json pins CompOmics/OmicsFM4c12a4debf2544e460c2862f0c220b8afdf22d9f and Hugging Face rednaSander/omicsfm71d857da1db9de896514322aa8b8d7a85396a698.
 
-Each method has its own branch. Check out **one branch** to get its model,
-portable training entry point, dependency list, input contract and synthetic
-checks. No other research branch needs to be checked out at runtime.
+    pip install -r requirements.txt
+    python smoke.py
 
-| Branch | Executed method line |
-|---|---|
-| [single/rna-scfoundation](https://github.com/DongyangLi-Lab/Cancer_KG/tree/single/rna-scfoundation) | RNA → scFoundation → max pooling → small MLP |
-| [single/protein-omicsfm](https://github.com/DongyangLi-Lab/Cancer_KG/tree/single/protein-omicsfm) | Protein → OmicsFM → max pooling → small MLP |
-| [fusion/rna-protein-pooled](https://github.com/DongyangLi-Lab/Cancer_KG/tree/fusion/rna-protein-pooled) | RNA and protein pooled features fused before one MLP |
-| [kg/pathway-alignment](https://github.com/DongyangLi-Lab/Cancer_KG/tree/kg/pathway-alignment) | RNA + real KG with calibrated reader and pathway auxiliary loss |
-| [kg/fourmodal-pathway](https://github.com/DongyangLi-Lab/Cancer_KG/tree/kg/fourmodal-pathway) | RNA + protein + PTM + CNV: real pathway additive/self-quadratic kernel Cox |
+Raw private NPZ fields are values[N,G] median-normalized protein intensity, gene_ids Unicode[G], patient_ids unique nonempty Unicode[N], positive finite time[N], binary event[N], and original fit/held integer indices. NaN denotes missing intensity. Finite signed values and zero are observed. The source is an intensity-domain adaptation, not reconstructed absolute abundance.
 
-## Start
+    python prepare.py --config examples/prepare.json
+    python encode.py --config examples/encode.json
 
-```bash
-git clone https://github.com/DongyangLi-Lab/Cancer_KG.git
-cd Cancer_KG
-git switch single/rna-scfoundation
-# Follow this branch's README for dependencies, inputs and checks.
-```
+Prepare exact-uniquely maps source symbols through the supplied SHA-bound FASTA to the checkpoint's unchanged accession vocabulary. Each patient ranks all mapped finite proteins before fit selection using the original random-tie seed0 and ceil(rank/N脳10). Eligibility requires at least10 and50percent training observations, train median and nonzero filled variance. The original lifelines Cox p-ranking selects exactly1024. Encoder input retains only observed selected tokens, in source order. Empty observed selections fail.
 
-The master branch is only this index. Methods share Git objects where source
-files are identical; old deployment releases and duplicate debug versions are
-not included. Only the strongest observed executed configuration in each of the
-five retained method categories is delivered. Superseded GNNs, larger-transformer
-trials, token-fusion trials and ablation-only branches are not published.
+After assembling12role files in the SHA-bound manifest, run the downstream head.
 
-| Retained category | Historical within-fold C-index |
-|---|---:|
-| RNA: scFoundation + small MLP | 0.640512 |
-| Protein: OmicsFM + small MLP | 0.574840 |
-| RNA + protein: pooled feature fusion | 0.639659 |
-| RNA + real KG: pathway alignment | 0.631130 |
-| Four measured modalities + real KG: pathway kernel | 0.621322 |
+    python train.py --manifest private/manifest.json --manifest-sha SHA256 --output private/results --seed 42
 
-These are seed42 development-cohort point estimates used to curate the code
-delivery, not a new held-out method selection experiment or proof of superiority.
-RNA + KG contains one measured modality plus biological knowledge; only the
-four-modal branch combines measured RNA, protein, PTM and CNV.
+Each embedding[N,256] is fit-standardized and placed in the first256 of1792 slots, with the remaining1536 zero. models.py is the unchanged historical64/16 ReLU/dropout0.2 smallMLP, no output bias, six lr脳wd candidates, max150/patience15, clip1, full-risk Cox. Inner validation loss chooses epochs, pooled inner concordance chooses candidates with first ties, and outer epochs use median3inner. Seeds42/20261022/20261023 are separate calls. The generated-data smoke covers all12roles and6candidates at2synthetic epochs plus malformed-input rejection and checkpoint replay.
 
-## Reproduction scope
+Code license is Apache2.0. The pinned model-card metadata declares weights CC-BY4.0, requiring the corresponding attribution. External checkpoints and source are acquired separately. Public pretraining-project overlap remains unresolved in the historical experiment. SOURCE_PROVENANCE.json records the original implementation and new I/O boundary.
 
-The main PDAC experiments use CPTAC133 patients/106 events and fixed nested
-three-fold partitions. Previously explored development results are not new
-external validation. These branches are **minimal portable extractions of
-executed methods**, with source hashes and documented I/O/launch adaptations.
-Synthetic checks validate packaging; they do not constitute a fresh clinical
-rerun or guarantee identical floating-point results on different hardware.
+This portable rehost was tested synthetically. Clinical scores were not recomputed for this delivery. Exact historical replay needs the original mapping, fitted selection, native-bin axis, private embedding/checkpoint manifests and resolved runtime. Rehosted source paths alone do not establish numerical identity.
 
-Patient tables, patient-level predictions, pretrained weights, fitted models,
-private manifests, caches and experiment logs are excluded. Obtain data and
-upstream weights under their respective access terms. Single-modality branches
-describe encoder preparation; fusion/KG branches explicitly document the
-private per-fit embedding/token boundary. Preprocessing, feature selection and
-hyperparameter selection belong inside training folds. Never generate fake
-tokens by repeating pooled embeddings.
+Use `pip install -r requirements-encoder.txt` for native encoding and preparation. The pinned architecture imports Torch only, and encoder.py reads the configuration dictionary from the checkpoint. YAML and einops are not runtime imports of this entrypoint.
 
-Only the retained real-KG configurations are exposed as training methods.
-Necessary frozen input/support checks remain so that extraction does not change
-the executed mathematics. Historical results do not establish KG superiority;
-a statistical kernel is not itself a new CUDA kernel.
-
-See [THIRD_PARTY.md](THIRD_PARTY.md) for dependency and model-license boundaries.
+Optional token_output in encode.json exports actual FP32 native protein tokens with stable checkpoint IDs, valid/special/biological masks and matched max pool, excluding SST. RNA encoder shards expose corresponding masks and a pooled alias for downstream compatibility.

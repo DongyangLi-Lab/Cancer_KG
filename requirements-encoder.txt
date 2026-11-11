@@ -1,0 +1,2 @@
+# The pinned OmicsFM architecture imports torch, torch.nn and torch.nn.functional.
+-r requirements.txt

@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/CompOmics/OmicsFM",
+  "revision": "4c12a4debf2544e460c2862f0c220b8afdf22d9f",
+  "weights_repository": "https://huggingface.co/rednaSander/omicsfm",
+  "weights_revision": "71d857da1db9de896514322aa8b8d7a85396a698",
+  "code_license": "Apache-2.0",
+  "source_files_sha256": {
+    "omicsfm/architecture.py": "e32e3133658eaa0aa28596c3eab7806940b1fb157c1bd4948d4b817b72a30930"
+  }
+}
