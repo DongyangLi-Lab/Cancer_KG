@@ -1,5 +1,26 @@
 # RNA/protein pooled feature fusion (C_pool)
 
+## Repository layout
+
+```text
+src/cancer_kg/   Python package, grouped by function
+  cli/          Preparation, encoding and training entry points
+  models/       Model definitions
+configs/        Example configurations (where needed)
+requirements/   Training, encoder and test dependencies
+tests/          Synthetic checks; no patient data
+docs/           Input contracts, upstream assets and source provenance
+```
+
+Additional package folders contain `data/`, `encoders/`, `training/`,
+`evaluation/` or `runtime/` components as required by this method.
+Install the package once from the repository root, then use the module commands
+below. Choose the appropriate dependency file in `requirements/` for your host.
+
+```bash
+python -m pip install --no-deps -e .
+```
+
 This is the executed 2026-10-31 **feature fusion before one MLP**, not risk-score
 ensembling: OmicsFM256 occupies `[0:256]`, `[256:1024]` stays zero, scFoundation768
 occupies `[1024:1792]`. Preserve these 1792 slots to preserve historical parameter
@@ -9,8 +30,8 @@ There is no KG in this historical branch.
 ## Run
 
 ```bash
-python smoke.py
-python train.py --manifest /path/to/fits.json --output /new/private/results
+python -m tests.smoke
+python -m cancer_kg.cli.train --manifest /path/to/fits.json --output /new/private/results
 ```
 
 The output directory must not already exist. Training runs 54 inner candidates
@@ -60,13 +81,13 @@ Native RNA and protein vocabularies are independent: do not join their integer I
 by position. Embedding extraction on a held individual is inference, not fitting.
 
 Install PyTorch appropriate for the host/CUDA separately, then
-`python -m pip install -r requirements.txt`. Historical GPU runtime: PyTorch
+`python -m pip install -r requirements/base.txt`. Historical GPU runtime: PyTorch
 2.7.1+cu126, FP32, TF32 disabled. Candidate CPU smoke runtime is recorded in the
 delivery QA; matching a different runtime does not guarantee identical patient
 predictions. No patient data, weights, predictions or historical logs are bundled.
 All runtime outputs are private artifacts, not files to commit to this branch.
 
-`SOURCE.json` binds original sources, extraction changes and candidate files.
+`docs/SOURCE.json` binds original sources, extraction changes and candidate files.
 Scientific computations are extracted from executed code; the portable file I/O
 and command-line wrapper are new and tested only on synthetic data. Historical
 UNC path checks, approval receipts and deployment manifest chains are omitted.

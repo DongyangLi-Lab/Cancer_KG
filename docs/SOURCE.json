@@ -1,0 +1,57 @@
+{
+  "source_experiment": "RNA/protein feature fusion, actually executed 2026-10-31",
+  "source_files": [
+    {
+      "path": "outputs/pdac_head_factorial_20261022/code/models.py",
+      "sha256": "b437930f10604840a82144401946f8c153f1a95ad9ae8455d14bcb57d2049ba7"
+    },
+    {
+      "path": "outputs/pdac_feature_fusion_20261031/pooled_release_v1/code/pooled_control.py",
+      "sha256": "805c442e73c2db81f5ab5a39a3a88046891af51136d60dd92899405af91b6965"
+    }
+  ],
+  "portability_changes": [
+    "model.py: exact standardize/cox/MLP/mlp/replay symbol extraction; unused ridge/SciPy omitted.",
+    "train.py: exact scientific helper functions and run body after input acquisition; replaced UNC/release authorization checks and remote source import with local model and one SHA-bound input manifest.",
+    "New CLI/README/synthetic smoke; original 133/106, 12-role checks and 57-fit recipe retained.",
+    "Execution metadata explicitly states that historical S/O reference replay is not performed by the portable wrapper.",
+    "Portable input hardening: Unicode/nonempty unique IDs; finite positive vector time; binary vector event; nonempty fit/held with events. No model/optimizer/selection change."
+  ],
+  "candidate_files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    ".gitignore": "178faf9728a177c3540ac32e751fd9fe1fc745a92665cbcac71036a5652da492",
+    "pyproject.toml": "13536e5cd5e2d91beaaaaf1984ed365a542c96866dc5bf0a0429acf7b211c3be",
+    "README.md": "3d548662fd863363f10b84df50b2cd9f3362195751bc2ace4a2e657b2351aa1e",
+    "docs/THIRD_PARTY.md": "c9f65f58ef24c7645ce643c7b963bf69813baea7c4241efb53b27501e7cad6f9",
+    "requirements/base.txt": "779ed02f3bfe3896043bceb0f086917bb4acbdb51074233ecb7ceee0b4f5c73d",
+    "tests/smoke.py": "23b056b002cf4fadea2ba0bc0cbbf24d0460c54be5f0b3df5edc6b8f757f767c",
+    "tests/__init__.py": "2daa77cea8f35523c474db543fb9ca161e5f3ffd2b523320059de5ab005dea65",
+    "src/cancer_kg/__init__.py": "692830ec4a9407e64efab121fb5a25964c6b8cbc4403b82ce0d59fca5343dc71",
+    "src/cancer_kg/cli/train.py": "b7d6d6f23efe5afe377af231b1f889fc79bd88c007fca46338386f8063e03ebc",
+    "src/cancer_kg/cli/__init__.py": "692830ec4a9407e64efab121fb5a25964c6b8cbc4403b82ce0d59fca5343dc71",
+    "src/cancer_kg/models/model.py": "f5b4e24cc8b47ee76423f4ea961adc03b7a6a58676235f6c40b667b943fef0b2",
+    "src/cancer_kg/models/__init__.py": "692830ec4a9407e64efab121fb5a25964c6b8cbc4403b82ce0d59fca5343dc71"
+  },
+  "bundled_patient_data": false,
+  "bundled_pretrained_weights": false,
+  "layout_refactor": {
+    "previous_commit": "f430c2966236d3d2f30eef46b3f3c00f0036b9d4",
+    "path_mapping": {
+      ".gitattributes": ".gitattributes",
+      ".gitignore": ".gitignore",
+      "README.md": "README.md",
+      "SOURCE.json": "docs/SOURCE.json",
+      "THIRD_PARTY.md": "docs/THIRD_PARTY.md",
+      "model.py": "src/cancer_kg/models/model.py",
+      "requirements.txt": "requirements/base.txt",
+      "smoke.py": "tests/smoke.py",
+      "train.py": "src/cancer_kg/cli/train.py"
+    },
+    "changes": [
+      "Functional src package and module imports",
+      "CLI and documentation paths updated",
+      "Runtime upstream metadata and source-hash paths updated"
+    ],
+    "scientific_configuration_changed": false
+  }
+}

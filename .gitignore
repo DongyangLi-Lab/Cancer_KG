@@ -7,3 +7,7 @@ results/
 *.npy
 *.pt
 *.pkl
+
+*.egg-info/
+build/
+dist/
