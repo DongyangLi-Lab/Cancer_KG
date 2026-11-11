@@ -13,15 +13,40 @@
       "sha256": "e01ba6537a55176cbb691a9ca11fbf83e2ca91fd8edf038b600498ffc750e396"
     }
   },
-  "unchanged_files": [
-    "kernels.py",
-    "cox.py"
-  ],
+  "unchanged_files": [],
   "adapter_changes": [
     "Portable manifest loader and build/fit orchestration",
     "Original support, mathematical transforms, alpha grid, convergence gate and paired scoring preserved",
     "metrics.py restricts ARMS to historical real_additive_selfquadratic, removes discarded contrasts, and retains scalar/vector scoring plus the exact original 2000 within-fold patient bootstrap draws. No numerical changes to the selected arm.",
     "Selected delivery trains only real_additive_selfquadratic: 39 original Cox solves. Frozen original common-support/effective gates remain; other kernels are neither saved nor trained."
   ],
-  "historical_rerun": false
+  "historical_rerun": false,
+  "layout_refactor": {
+    "previous_commit": "5ae488185a76e59a21a55dec6089719b12e39af7",
+    "path_mapping": {
+      ".gitattributes": ".gitattributes",
+      ".gitignore": ".gitignore",
+      "INPUTS.md": "docs/INPUTS.md",
+      "PROVENANCE.json": "docs/PROVENANCE.json",
+      "README.md": "README.md",
+      "THIRD_PARTY.md": "docs/THIRD_PARTY.md",
+      "common.py": "src/cancer_kg/data/common.py",
+      "cox.py": "src/cancer_kg/training/cox.py",
+      "data.py": "src/cancer_kg/data/data.py",
+      "graph.py": "src/cancer_kg/data/graph.py",
+      "kernels.py": "src/cancer_kg/models/kernels.py",
+      "metrics.py": "src/cancer_kg/evaluation/metrics.py",
+      "requirements-test.txt": "requirements/test.txt",
+      "requirements.txt": "requirements/base.txt",
+      "run.py": "src/cancer_kg/cli/run.py",
+      "schema.py": "src/cancer_kg/data/schema.py",
+      "tests/test_compute.py": "tests/test_compute.py"
+    },
+    "changes": [
+      "Functional src package and module imports",
+      "CLI and documentation paths updated",
+      "Runtime upstream metadata and source-hash paths updated"
+    ],
+    "scientific_configuration_changed": false
+  }
 }

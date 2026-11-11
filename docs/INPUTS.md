@@ -38,7 +38,7 @@ unstandardized original max pools; GNN concat/readout branches standardize them
 inside make_batch, tensor kernels use their own fit-only block transforms.
 
 Graph mapping must use the corrected generic PTM parent identity, not the old
-kinase-supported subset. `graph.py` implements public assay-to-gene joining,
+kinase-supported subset. `src/cancer_kg/data/graph.py` implements public assay-to-gene joining,
 Reactome release 97 All_Levels membership, hierarchy and degree-preserving
 shuffle. Supply `assays` in the exact selected feature order, symbol-to-NCBI Gene
 mapping, stored pathway membership and hierarchy to `build_graph`; merge its
