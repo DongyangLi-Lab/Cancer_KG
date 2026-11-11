@@ -1,0 +1,27 @@
+{
+  "sources": {
+    "kernels.py": {
+      "source": "outputs\\pdac_pathway_tensor_20261110\\clinical_release_v1\\kernels.py",
+      "sha256": "a91ba661fef599bf3d802b331483c3c381e5927cd0f30f1b01ba36db4c349921"
+    },
+    "cox.py": {
+      "source": "outputs\\pdac_pathway_tensor_20261110\\clinical_release_v1\\cox.py",
+      "sha256": "439eb7171b29951185706019dd5be94dd0cc191663636d6f8da165d2ff7110d4"
+    },
+    "metrics.py": {
+      "source": "outputs\\pdac_pathway_tensor_20261110\\clinical_release_v1\\independent_audit\\metrics.py",
+      "sha256": "e01ba6537a55176cbb691a9ca11fbf83e2ca91fd8edf038b600498ffc750e396"
+    }
+  },
+  "unchanged_files": [
+    "kernels.py",
+    "cox.py"
+  ],
+  "adapter_changes": [
+    "Portable manifest loader and build/fit orchestration",
+    "Original support, mathematical transforms, alpha grid, convergence gate and paired scoring preserved",
+    "metrics.py restricts ARMS to historical real_additive_selfquadratic, removes discarded contrasts, and retains scalar/vector scoring plus the exact original 2000 within-fold patient bootstrap draws. No numerical changes to the selected arm.",
+    "Selected delivery trains only real_additive_selfquadratic: 39 original Cox solves. Frozen original common-support/effective gates remain; other kernels are neither saved nor trained."
+  ],
+  "historical_rerun": false
+}
