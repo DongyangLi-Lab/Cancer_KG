@@ -9,3 +9,7 @@ private*.tsv
 results/
 assets.json
 inputs.json
+
+*.egg-info/
+build/
+dist/
