@@ -1,0 +1,10 @@
+{
+  "fits": [
+    {
+      "fit_id": "r0_f0_inner0",
+      "file": "private/r0_f0_inner0.npz",
+      "sha256": "REPLACE_WITH_SHA256"
+    }
+  ],
+  "required_roles": "r0_f{0,1,2}_{inner0,inner1,inner2,outer}"
+}

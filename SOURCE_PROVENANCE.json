@@ -1,0 +1,98 @@
+{
+  "status": "frozen_best_model_candidate_pending_root_publication",
+  "clinical_rerun_performed": false,
+  "patient_data_included": false,
+  "pretrained_weights_included": false,
+  "third_party_model_implementation_vendored": false,
+  "sources": [
+    {
+      "workspace_relative_source": "outputs/pdac_head_factorial_20261022/code/models.py",
+      "source_sha256": "b437930f10604840a82144401946f8c153f1a95ad9ae8455d14bcb57d2049ba7",
+      "delivered_files": [
+        "models.py"
+      ],
+      "mode": "unchanged_source_file"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_head_factorial_20261022/code/runner.py",
+      "source_sha256": "6c5b9e148e89bbdfe87db45a9957deb7f7c00317dd246e3df1b221098faad900",
+      "delivered_files": [
+        "train.py"
+      ],
+      "mode": "portable_input_rehost_preserves_small_cell_recipe"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_token_transformer_20261023/code/frozen/code_encoders/adapters.py",
+      "source_sha256": "03c5bc7817ce4d0ea6c3177f915847e06d977d8730a4ce9556088ab879fb948a",
+      "delivered_files": [
+        "native.py"
+      ],
+      "mode": "AST_extract_freeze_ScFoundation_strict_load_convert"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_foundation_sixhour_20261022/code_encoders/scfoundation_runtime.py",
+      "source_sha256": "a7f3767d5b93f8a7b3ee3cd1ffa1b904ad6f4416de1f32492ee0a44e6357c841",
+      "delivered_files": [
+        "scfoundation_runtime.py"
+      ],
+      "mode": "unchanged_source_file"
+    },
+    {
+      "workspace_relative_source": "outputs/pdac_foundation_sixhour_20261022/code_encoders/core.py",
+      "source_sha256": "bf8b207f0463d497ad403fb5fdfcb3691b90a075d2664533bddf8b1b1a596879",
+      "delivered_files": [
+        "core.py"
+      ],
+      "mode": "AST_extract_align_row"
+    },
+    {
+      "workspace_relative_source": "outputs/egsp_pdac_execution_v2_2_20261022/extract_egsp_cache.py",
+      "source_sha256": "3c837bd128b2376f7bd576f534a33e375306a21ddaa5f093b4b5c208c714483f",
+      "delivered_files": [
+        "core.py"
+      ],
+      "mode": "AST_extract_egsp_bulk"
+    },
+    {
+      "workspace_relative_source": "outputs/egsp_pdac_execution_v2_2_20261022/pdac_faithful.py",
+      "source_sha256": "70b820c50f732b851c52110884e7ed1a6eacf70720d4723d17bc712af2281154",
+      "delivered_files": [
+        "selection.py",
+        "prepare.py"
+      ],
+      "mode": "AST_extract_rank_cox_plus_portable_IO"
+    }
+  ],
+  "files_sha256": {
+    ".gitignore": "0ab4c881ed3923bd5a2d931cf226edb33696a2d59bd56b338b21fff4d8f08773",
+    "assemble.py": "28b0c9d60495a04d251d42c7971d3ab067cd9112d8aa603bc874330bd8769100",
+    "core.py": "9a322a07276976de1b9e010171738296466407276467c7e292b64e51e985bd69",
+    "encode.py": "eac55c7b3e32f861d6cb96dada175d1361eb2f621e8763f6665f5ed80cb4780c",
+    "examples/assemble.json": "b1982fbc9024678e0e811fdd4f5bd0dadf427edc9d5ffa2007f6e23701511d16",
+    "examples/encode.json": "c431f0b4ab064f08ed8ad5720263a1d092bbfb2978e7aa23a20688e6353f63bc",
+    "examples/manifest.json": "307709c1154fedef4e76d5f8007e5f03af58eca56cfd18450503267fdcdbc740",
+    "examples/prepare.json": "491e1b3aa59ab4b242e8e8a16af721a1a6edb24c393ff87e65b75cb5b1155a34",
+    "MODEL_LICENSE_CHECK.json": "e0e80973c9ea5233f44375f324ff21a022e3dd4463b512cc01a8cbb9cd74bcce",
+    "models.py": "b437930f10604840a82144401946f8c153f1a95ad9ae8455d14bcb57d2049ba7",
+    "native.py": "78c78f85184ee1b68377ae890070470396d0d633b8bb773163572bb6265275f9",
+    "prepare.py": "41617cc2452eda228ddadd6ca7f83a4ecbd8c02b9c775953486413917dedbf04",
+    "README.md": "b7b192d59ceb79241da3f4984473e941a51953b2104a82e2661e33ecdf52374f",
+    "requirements-encoder.txt": "b58bd5be69221da582282bda9e37be0c0abaf797b83fe1f12c653670640ed91a",
+    "requirements.txt": "454ae736b60b1eba1716fbcd8a0e24d03d16bf3e63d315c41cd4a25a538deef5",
+    "scfoundation_runtime.py": "a7f3767d5b93f8a7b3ee3cd1ffa1b904ad6f4416de1f32492ee0a44e6357c841",
+    "selection.py": "6b7538686129f20123a05b5b8c01eba719052533bf221387de0b2e8bf8157ab2",
+    "smoke.py": "3932a7076533c094c2ac64961bbdf3efa80e6a5b0ddc1f7010babdd4be303449",
+    "smoke_contracts.py": "df8c24d0e40b45f380ba3c648ec5d6c9d0c46b7fd83891352eb178501a21c330",
+    "THIRD_PARTY.md": "fc40962dc0026268a1db665b81b1b33f6eaf3e5a6bb3f4c8f30c1a7c7953c265",
+    "train.py": "2982c2407692c0fb5afc7fe05d9fa85ea345824559704d703f0446b061c22d00",
+    "UPSTREAM.json": "69da253c434faeb9ed918432821995aee6ea84c630aebf53c705f6a5690bbddc"
+  },
+  "portable_changes": [
+    "Private paths and manifests are caller-supplied",
+    "Explicit endpoint/ID/partition and SHA validation",
+    "Original training bodies preserved by byte-copy or AST extraction",
+    "Asset loading binds pinned external source and caller trusted weight SHA"
+  ],
+  "historical_replay_boundary": "Original private normalization/selection/cache/checkpoint/runtime manifests are additionally required for exact historical replay",
+  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors"
+}

@@ -1,0 +1,7 @@
+{
+  "source": "private/selected_input.npz",
+  "source_sha256": "REPLACE_WITH_SHA256",
+  "cache_manifest": "private/native_cache/manifest.json",
+  "cache_manifest_sha256": "REPLACE_WITH_SHA256",
+  "output": "private/r0_f0_inner0.npz"
+}

@@ -1,0 +1,18 @@
+{
+  "tahoe": {
+    "url": "https://huggingface.co/tahoebio/Tahoe-x1/raw/d218a580b9c2500ae9dfc8367a398545e6f017a8/README.md",
+    "sha256": "fc5d8aedefbc0bc01aa9317b84523ffe50d0f9f919717ca5261024763ef4e832",
+    "license_lines": [
+      "license: apache-2.0"
+    ],
+    "status": "read"
+  },
+  "omicsfm": {
+    "url": "https://huggingface.co/rednaSander/omicsfm/raw/71d857da1db9de896514322aa8b8d7a85396a698/README.md",
+    "sha256": "5202d9723b89ba6552415f7f5e2da215e5dd9886243f4b4b1c74cf8da7ed2737",
+    "license_lines": [
+      "license: cc-by-4.0"
+    ],
+    "status": "read"
+  }
+}

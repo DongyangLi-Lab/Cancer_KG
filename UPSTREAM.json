@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/biomap-research/scFoundation",
+  "revision": "397631c495eddf9ad6644fc00c6ea8139e651245",
+  "code_license": "Apache-2.0",
+  "weight_license": "scFoundation non-commercial research model license",
+  "source_files_sha256": {
+    "model/load.py": "6cd804545f80ad737c215339bd420f3e3e6d4d4ca47197a72dcd25b027d013f5",
+    "model/OS_scRNA_gene_index.19264.tsv": "bb337ea195d94e7b033543abc02a42e7060d6562eba97deb077f7dcecec62661"
+  }
+}

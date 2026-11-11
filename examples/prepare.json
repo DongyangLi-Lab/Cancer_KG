@@ -1,0 +1,7 @@
+{
+  "input": "private/raw_counts_with_role.npz",
+  "input_sha256": "REPLACE_WITH_SHA256",
+  "input_unit": "raw_counts",
+  "gene_index": "external/scFoundation/model/OS_scRNA_gene_index.19264.tsv",
+  "output": "private/selected_input.npz"
+}

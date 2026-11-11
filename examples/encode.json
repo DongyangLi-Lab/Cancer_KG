@@ -1,0 +1,16 @@
+{
+  "repo_dir": "external/scFoundation",
+  "checkpoint": "external/models.ckpt",
+  "checkpoint_sha256": "REPLACE_WITH_TRUSTED_CHECKPOINT_SHA256",
+  "gene_index": "external/scFoundation/model/OS_scRNA_gene_index.19264.tsv",
+  "input": "private/selected_input.npz",
+  "input_sha256": "REPLACE_WITH_SHA256",
+  "input_unit": "selected_normalized_log1p",
+  "pre_normalized": "T",
+  "pool_type": "max",
+  "precision": "fp32",
+  "device": "cuda",
+  "disable_mha_fastpath": true,
+  "sdpa_policy": "efficient_only",
+  "output": "private/native_cache"
+}
