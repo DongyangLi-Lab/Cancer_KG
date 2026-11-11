@@ -94,5 +94,40 @@
     "Asset loading binds pinned external source and caller trusted weight SHA"
   ],
   "historical_replay_boundary": "Original private normalization/selection/cache/checkpoint/runtime manifests are additionally required for exact historical replay",
-  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors"
+  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors",
+  "layout_refactor": {
+    "previous_commit": "74e70568eb127b9f7abcc426fb508a2d8df7702e",
+    "path_mapping": {
+      ".gitattributes": ".gitattributes",
+      ".gitignore": ".gitignore",
+      "MODEL_LICENSE_CHECK.json": "docs/MODEL_LICENSE_CHECK.json",
+      "README.md": "README.md",
+      "SOURCE_PROVENANCE.json": "docs/SOURCE_PROVENANCE.json",
+      "THIRD_PARTY.md": "docs/THIRD_PARTY.md",
+      "UPSTREAM.json": "docs/UPSTREAM.json",
+      "assemble.py": "src/cancer_kg/cli/assemble.py",
+      "core.py": "src/cancer_kg/data/core.py",
+      "encode.py": "src/cancer_kg/cli/encode.py",
+      "examples/assemble.json": "configs/assemble.json",
+      "examples/encode.json": "configs/encode.json",
+      "examples/manifest.json": "configs/manifest.json",
+      "examples/prepare.json": "configs/prepare.json",
+      "models.py": "src/cancer_kg/models/models.py",
+      "native.py": "src/cancer_kg/encoders/native.py",
+      "prepare.py": "src/cancer_kg/cli/prepare.py",
+      "requirements-encoder.txt": "requirements/encoder.txt",
+      "requirements.txt": "requirements/base.txt",
+      "scfoundation_runtime.py": "src/cancer_kg/encoders/scfoundation_runtime.py",
+      "selection.py": "src/cancer_kg/data/selection.py",
+      "smoke.py": "tests/smoke.py",
+      "smoke_contracts.py": "tests/smoke_contracts.py",
+      "train.py": "src/cancer_kg/cli/train.py"
+    },
+    "changes": [
+      "Functional src package and module imports",
+      "CLI and documentation paths updated",
+      "Runtime upstream metadata and source-hash paths updated"
+    ],
+    "scientific_configuration_changed": false
+  }
 }

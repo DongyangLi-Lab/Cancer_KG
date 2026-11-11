@@ -6,3 +6,7 @@ private/
 *.pt
 *.ckpt
 *.log
+
+*.egg-info/
+build/
+dist/
