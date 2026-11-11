@@ -65,4 +65,29 @@ Necessary frozen input/support checks remain so that extraction does not change
 the executed mathematics. Historical results do not establish KG superiority;
 a statistical kernel is not itself a new CUDA kernel.
 
-See [THIRD_PARTY.md](THIRD_PARTY.md) for dependency and model-license boundaries.
+See [THIRD_PARTY.md](docs/THIRD_PARTY.md) for dependency and model-license boundaries.
+
+## Functional layout on each method branch
+
+```text
+README.md
+pyproject.toml
+src/cancer_kg/
+  cli/          Run preparation, encoding and training
+  models/       Model definitions and knowledge kernels
+  data/         Input validation and feature/graph preparation
+  encoders/     Foundation-model adapters
+  training/     Losses, optimization and checkpoint helpers
+  evaluation/   Survival metrics
+  runtime/      Precision and attention backend policies
+configs/        Example configurations
+requirements/   Dependencies grouped by purpose
+tests/          Synthetic validation
+docs/           Input contracts and source/upstream provenance
+```
+
+Only folders required by the selected method are included. From the repository
+root, install the appropriate `requirements/` file and run
+`python -m pip install --no-deps -e .`. The branch README lists module commands
+such as `python -m cancer_kg.cli.train --help`. Models, losses, frozen experiment
+configuration and patient splits are unchanged by the directory reorganization.
