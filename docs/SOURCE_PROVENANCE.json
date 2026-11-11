@@ -83,5 +83,38 @@
     "Asset loading binds pinned external source and caller trusted weight SHA"
   ],
   "historical_replay_boundary": "Original private normalization/selection/cache/checkpoint/runtime manifests are additionally required for exact historical replay",
-  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors"
+  "interop_metadata": "Native tokens, stable IDs, valid/special/biological masks and pooled values; no tokens manufactured from pooled vectors",
+  "layout_refactor": {
+    "previous_commit": "49717b499f0b532fe32a604c312f8333df896bda",
+    "path_mapping": {
+      ".gitattributes": ".gitattributes",
+      ".gitignore": ".gitignore",
+      "MODEL_LICENSE_CHECK.json": "docs/MODEL_LICENSE_CHECK.json",
+      "README.md": "README.md",
+      "SOURCE_PROVENANCE.json": "docs/SOURCE_PROVENANCE.json",
+      "THIRD_PARTY.md": "docs/THIRD_PARTY.md",
+      "UPSTREAM.json": "docs/UPSTREAM.json",
+      "binning.py": "src/cancer_kg/data/binning.py",
+      "contracts.py": "src/cancer_kg/data/contracts.py",
+      "encode.py": "src/cancer_kg/cli/encode.py",
+      "encoder.py": "src/cancer_kg/encoders/encoder.py",
+      "examples/encode.json": "configs/encode.json",
+      "examples/manifest.json": "configs/manifest.json",
+      "examples/prepare.json": "configs/prepare.json",
+      "models.py": "src/cancer_kg/models/models.py",
+      "prepare.py": "src/cancer_kg/cli/prepare.py",
+      "requirements-encoder.txt": "requirements/encoder.txt",
+      "requirements.txt": "requirements/base.txt",
+      "selection.py": "src/cancer_kg/data/selection.py",
+      "smoke.py": "tests/smoke.py",
+      "smoke_contracts.py": "tests/smoke_contracts.py",
+      "train.py": "src/cancer_kg/cli/train.py"
+    },
+    "changes": [
+      "Functional src package and module imports",
+      "CLI and documentation paths updated",
+      "Runtime upstream metadata and source-hash paths updated"
+    ],
+    "scientific_configuration_changed": false
+  }
 }
