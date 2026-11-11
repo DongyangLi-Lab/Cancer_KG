@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/tahoebio/tahoe-x1",
+  "revision": "167cc19fce5888c7738b0f73f61cb4a8d3d1d457",
+  "weights_repository": "https://huggingface.co/tahoebio/Tahoe-x1",
+  "weights_revision": "d218a580b9c2500ae9dfc8367a398545e6f017a8",
+  "weights_subdirectory": "3b-model",
+  "code_license": "Apache-2.0",
+  "source_files_sha256": {
+    "tahoe_x1/model/model.py": "f9f123d95b54d1ab76f9f49c739bea32520baa30617e4aee043c9db296f8efdb",
+    "tahoe_x1/model/blocks.py": "09b8093a7de4393edef829b35bc9f7fb54f2ac3bcf218e49bf915c64f62a9a48"
+  }
+}

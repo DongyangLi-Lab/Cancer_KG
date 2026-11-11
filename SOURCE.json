@@ -1,0 +1,227 @@
+{
+  "source_experiment": "KG pathway alignment, executed2026-10-27",
+  "source_files": [
+    {
+      "path": "outputs/pdac_token_transformer_20261023/step2_v4/token_model.py",
+      "sha256": "ec036f4e4e81f1a7547bec52a74ef2fdde97c58ff740c2a84ca3d6bd8d6f7a7c"
+    },
+    {
+      "path": "outputs/pdac_token_transformer_20261023/step2_v4/fullrisk_replay.py",
+      "sha256": "62087c13f7f8be3f6dbe62495b7b8118fee443dedd5fa6e45789a16438d436e0"
+    },
+    {
+      "path": "outputs/pdac_token_transformer_20261023/step2_v4/precision.py",
+      "sha256": "f3b0de7282294c3181f2c20debca57aa131de64981d90ea8de3021385390df48"
+    },
+    {
+      "path": "outputs/pdac_token_transformer_20261023/step2_v4/gradient_gates.py",
+      "sha256": "0cca4a404ea2c6f22e844a8b3cbb747f7ce16f9d914cb6d4265a58c183951138"
+    },
+    {
+      "path": "outputs/pdac_token_transformer_20261023/step2_v4/flash_policy.py",
+      "sha256": "4bc841f7c0f46cc0e8d4b397d72564765e08195e304992123af7be0d3ac4a3c7"
+    },
+    {
+      "path": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/upstream_loader.py",
+      "sha256": "0389b9254fe467aa2fa8939e94e1368ea3ff3579692d3f9a328e417f33a6965c"
+    },
+    {
+      "path": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/native.py",
+      "sha256": "4097ff9b44a0468ef3681f6f1ecfd677a78301ca17dfefeef824af1380e968b3"
+    },
+    {
+      "path": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/UPSTREAM.json",
+      "sha256": "9e73dfdf1485ae7b09a008ab5c7b30f668bf6aa7449607ea9bf3eff06475f27f"
+    },
+    {
+      "path": "outputs/pdac_kg_memory_20261027/smoke_release/kg_reader.py",
+      "sha256": "202ed63a81647ee180188fbeebcb5d75e9149c28acb06295e434ec6d07615ae1"
+    },
+    {
+      "path": "outputs/pdac_kg_memory_20261027/smoke_release/bank.py",
+      "sha256": "3ee0fab3b3775ad986d5501eaeeb5195a85bcfa3c68e18e1020d1cc51e1c5927"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/resource_release/calibrated.py",
+      "sha256": "d96e7a3eea667c18ed19312b59f83d78d117487013807028811b8be340813e88"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/resource_release/joint.py",
+      "sha256": "37a586f6bcef69efbfd7f635e3a71714eae7ef97386dc9fab0e5bc4f89b11ad5"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/targets_release/pooling.py",
+      "sha256": "59b489352e0cdb5f65619a28c961085662052bc732c4221af90d6bf67a1c58d9"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/targets_release/targets.py",
+      "sha256": "2ab2b13cba4933af12a4e311cc0d0c1d3e2c0b31d2223bd3848c3846ad6ee77a"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/resource_release/data.py",
+      "sha256": "aac2c541ae744978b7d6cf22a8b1bbddd30217b809e2d215bc6d162d98a43ab2"
+    },
+    {
+      "path": "outputs/pdac_kg_memory_20261027/smoke_release/runner_draft.py",
+      "sha256": "046c439e7847b19fc1bab97ef450638f36253229f4264e0a4f238a7d08f3aa88"
+    },
+    {
+      "path": "outputs/pdac_kg_alignment_20261027/train_release/fit.py",
+      "sha256": "d6a4520c4ae39808db2aad06b61667231ba6d866fa32bb17d87d0807d572a627"
+    }
+  ],
+  "extractions": [
+    {
+      "candidate": "token_model.py",
+      "source": "outputs/pdac_token_transformer_20261023/step2_v4/token_model.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "fullrisk_replay.py",
+      "source": "outputs/pdac_token_transformer_20261023/step2_v4/fullrisk_replay.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "precision.py",
+      "source": "outputs/pdac_token_transformer_20261023/step2_v4/precision.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "gradient_gates.py",
+      "source": "outputs/pdac_token_transformer_20261023/step2_v4/gradient_gates.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "flash_policy.py",
+      "source": "outputs/pdac_token_transformer_20261023/step2_v4/flash_policy.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "upstream_loader.py",
+      "source": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/upstream_loader.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "native.py",
+      "source": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/native.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "UPSTREAM.json",
+      "source": "outputs/github_delivery_20261111/candidates/scfoundation-tahoe-token/UPSTREAM.json",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "kg_reader.py",
+      "source": "outputs/pdac_kg_memory_20261027/smoke_release/kg_reader.py",
+      "mode": "AST-identical symbols",
+      "symbols": [
+        "KGReader"
+      ]
+    },
+    {
+      "candidate": "bank.py",
+      "source": "outputs/pdac_kg_memory_20261027/smoke_release/bank.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "calibrated.py",
+      "source": "outputs/pdac_kg_alignment_20261027/resource_release/calibrated.py",
+      "mode": "AST-identical symbols",
+      "symbols": [
+        "calibrate",
+        "CalibratedReader",
+        "AlignmentModel",
+        "auxiliary_forward"
+      ]
+    },
+    {
+      "candidate": "joint.py",
+      "source": "outputs/pdac_kg_alignment_20261027/resource_release/joint.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "pooling.py",
+      "source": "outputs/pdac_kg_alignment_20261027/targets_release/pooling.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "targets.py",
+      "source": "outputs/pdac_kg_alignment_20261027/targets_release/targets.py",
+      "mode": "byte-identical"
+    },
+    {
+      "candidate": "auxiliary.py",
+      "source": "outputs/pdac_kg_alignment_20261027/resource_release/data.py",
+      "mode": "AST-identical symbols",
+      "symbols": [
+        "availability",
+        "make_aux"
+      ]
+    },
+    {
+      "candidate": "state.py",
+      "source": "outputs/pdac_kg_memory_20261027/smoke_release/runner_draft.py",
+      "mode": "AST-identical symbols",
+      "symbols": [
+        "trainable_state",
+        "load_trainable"
+      ]
+    },
+    {
+      "candidate": "fit_core.py",
+      "source": "outputs/pdac_kg_alignment_20261027/train_release/fit.py",
+      "mode": "AST-identical symbols",
+      "symbols": [
+        "make_model",
+        "aux_state",
+        "aux_digest",
+        "predict",
+        "knowledge_description",
+        "fit"
+      ]
+    }
+  ],
+  "portability_changes": [
+    "Removed historical path bootstrap and Slurm/authorization/release-chain wrappers.",
+    "New SHA-bound prepared NPZ input and fixed12-fit CLI; scientific functions unchanged.",
+    "New smoke uses synthetic inputs and fake native-API encoder only; no patient or pretrained execution.",
+    "Removed descriptive held auxiliary report generation; it was never a training or selection input.",
+    "Selected-model-only delivery: aligned_real fixed in CLI/input; removed alternative arms, unused degree permutation and shuffled-bank requirement. Original fit/model/target arithmetic unchanged; original bank NPZ with extra historical fields remains readable."
+  ],
+  "bundled_patient_data": false,
+  "bundled_pretrained_weights": false,
+  "bundled_third_party_source_tree": false,
+  "candidate_files": {
+    ".gitignore": "5438e56b4ef5cf405ce34550c9499add9cee19acf339ab6751b6c5528b3e8e6b",
+    "auxiliary.py": "5836fce56b7c866f9e86cc8ab0a7335cd76cedc2c3c794360c3a931dc3143cd1",
+    "bank.py": "3ee0fab3b3775ad986d5501eaeeb5195a85bcfa3c68e18e1020d1cc51e1c5927",
+    "calibrated.py": "caee1c160a810ec6b5c5381b6e0a113feb0ece00031e4ecf6f29a36a1f6f6b2d",
+    "fit_core.py": "81605be5b0302f1773d4b99df10f746e1137932cc1aea6261286e2abbfcda5c6",
+    "flash_policy.py": "4bc841f7c0f46cc0e8d4b397d72564765e08195e304992123af7be0d3ac4a3c7",
+    "fullrisk_replay.py": "62087c13f7f8be3f6dbe62495b7b8118fee443dedd5fa6e45789a16438d436e0",
+    "gradient_gates.py": "0cca4a404ea2c6f22e844a8b3cbb747f7ce16f9d914cb6d4265a58c183951138",
+    "inputs.py": "f7abf4c0b0e83675efb561e8214257d279d8fee3478a6c2dc85b6a107ede400b",
+    "joint.py": "37a586f6bcef69efbfd7f635e3a71714eae7ef97386dc9fab0e5bc4f89b11ad5",
+    "kg_reader.py": "2a94c88174fe992de59349c4d1378a5235d5a01cd4f1d6f65c3815bbeebb2bbd",
+    "native.py": "4097ff9b44a0468ef3681f6f1ecfd677a78301ca17dfefeef824af1380e968b3",
+    "pooling.py": "59b489352e0cdb5f65619a28c961085662052bc732c4221af90d6bf67a1c58d9",
+    "precision.py": "f3b0de7282294c3181f2c20debca57aa131de64981d90ea8de3021385390df48",
+    "README.md": "a697fd487dbc5859dc592429d550d68d2da958b42303b57845afedfc8dd22047",
+    "requirements-smoke.txt": "08595af6c3ceaf60b556c9b3732b8e589991429a3b198655afeccd94f129033e",
+    "requirements.txt": "020b2cb4566dc9214703ff78f1979a904e36be2f4089dfb362b0d1484ea4b9fa",
+    "smoke.py": "671a2aa2b70cc98b56efb96e5aa2de5678f30a3b81535ca32aceff19fd77ba0c",
+    "state.py": "7df1939f2425eb614efe1f69587b8f9a4c77f304237cde7248b79e40aa67795c",
+    "targets.py": "2ab2b13cba4933af12a4e311cc0d0c1d3e2c0b31d2223bd3848c3846ad6ee77a",
+    "token_model.py": "ec036f4e4e81f1a7547bec52a74ef2fdde97c58ff740c2a84ca3d6bd8d6f7a7c",
+    "train.py": "5cac252b30470993e7ca1ffee0415b261368dc5a203310fcb71b2fd5e70de1df",
+    "UPSTREAM.json": "9e73dfdf1485ae7b09a008ab5c7b30f668bf6aa7449607ea9bf3eff06475f27f",
+    "upstream_loader.py": "0389b9254fe467aa2fa8939e94e1368ea3ff3579692d3f9a328e417f33a6965c"
+  },
+  "selected_model": {
+    "name": "aligned_real",
+    "historical_reported_cindex": 0.63113,
+    "auxiliary_coefficient": 0.1,
+    "selection_scope": "Selected from completed project experiments; not independent superiority evidence"
+  }
+}

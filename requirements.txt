@@ -1,0 +1,4 @@
+# Native Linux Python>=3.10 and matching CUDA toolchain required.
+git+https://github.com/tahoebio/tahoe-x1.git@167cc19fce5888c7738b0f73f61cb4a8d3d1d457
+flash-attn==2.8.3
+pandas>=2.2,<4
