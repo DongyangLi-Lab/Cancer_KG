@@ -1,68 +1,78 @@
-# Cancer_KG
+# RNA/protein pooled feature fusion (C_pool)
 
-Minimal runnable research code for pancreatic-cancer survival prediction,
-foundation-model representations, multi-omics fusion, and knowledge graphs.
+This is the executed 2026-10-31 **feature fusion before one MLP**, not risk-score
+ensembling: OmicsFM256 occupies `[0:256]`, `[256:1024]` stays zero, scFoundation768
+occupies `[1024:1792]`. Preserve these 1792 slots to preserve historical parameter
+initialization. Head: 1792→64/ReLU/dropout0.2→16/ReLU/dropout0.2→1(no output bias).
+There is no KG in this historical branch.
 
-Each method has its own branch. Check out **one branch** to get its model,
-portable training entry point, dependency list, input contract and synthetic
-checks. No other research branch needs to be checked out at runtime.
-
-| Branch | Executed method line |
-|---|---|
-| [single/rna-scfoundation](https://github.com/DongyangLi-Lab/Cancer_KG/tree/single/rna-scfoundation) | RNA → scFoundation → max pooling → small MLP |
-| [single/protein-omicsfm](https://github.com/DongyangLi-Lab/Cancer_KG/tree/single/protein-omicsfm) | Protein → OmicsFM → max pooling → small MLP |
-| [fusion/rna-protein-pooled](https://github.com/DongyangLi-Lab/Cancer_KG/tree/fusion/rna-protein-pooled) | RNA and protein pooled features fused before one MLP |
-| [kg/pathway-alignment](https://github.com/DongyangLi-Lab/Cancer_KG/tree/kg/pathway-alignment) | RNA + real KG with calibrated reader and pathway auxiliary loss |
-| [kg/fourmodal-pathway](https://github.com/DongyangLi-Lab/Cancer_KG/tree/kg/fourmodal-pathway) | RNA + protein + PTM + CNV: real pathway additive/self-quadratic kernel Cox |
-
-## Start
+## Run
 
 ```bash
-git clone https://github.com/DongyangLi-Lab/Cancer_KG.git
-cd Cancer_KG
-git switch single/rna-scfoundation
-# Follow this branch's README for dependencies, inputs and checks.
+python smoke.py
+python train.py --manifest /path/to/fits.json --output /new/private/results
 ```
 
-The master branch is only this index. Methods share Git objects where source
-files are identical; old deployment releases and duplicate debug versions are
-not included. Only the strongest observed executed configuration in each of the
-five retained method categories is delivered. Superseded GNNs, larger-transformer
-trials, token-fusion trials and ablation-only branches are not published.
+The output directory must not already exist. Training runs 54 inner candidates
+plus 3 outer refits. Six candidates, in order: lr `[1e-4,1e-3]` × weight decay
+`[1e-4,0.01,0.1]`; AdamW, seed42, full-fit Breslow Cox, clip1, maximum150 epochs,
+patience15. Inner early stopping uses validation Cox loss; candidate selection
+uses sum of three inner concordance credits / sum of comparable pairs, first tie.
+Outer epochs are the integer median of the selected three inner best epochs.
+Only within-fold risks are compared; the original cohort has2345 comparable pairs.
 
-| Retained category | Historical within-fold C-index |
-|---|---:|
-| RNA: scFoundation + small MLP | 0.640512 |
-| Protein: OmicsFM + small MLP | 0.574840 |
-| RNA + protein: pooled feature fusion | 0.639659 |
-| RNA + real KG: pathway alignment | 0.631130 |
-| Four measured modalities + real KG: pathway kernel | 0.621322 |
+## Prepared input schema
 
-These are seed42 development-cohort point estimates used to curate the code
-delivery, not a new held-out method selection experiment or proof of superiority.
-RNA + KG contains one measured modality plus biological knowledge; only the
-four-modal branch combines measured RNA, protein, PTM and CNV.
+One JSON manifest: `{"fits":[{"fit_id":"r0_f0_inner0","file":"fit.npz",
+"sha256":"<64-hex>"}, ...]}`. Exactly12 names:
+`r0_f{0,1,2}_{inner0,inner1,inner2,outer}`. Paths are relative to the manifest.
+Each NPZ uses only non-object arrays (`allow_pickle=False`):
 
-## Reproduction scope
+| key | shape/type | meaning |
+|---|---|---|
+| patient_ids | Unicode[133] | common unique row IDs, never model input |
+| time,event | [133], float/binary | time and event;106 events |
+| fit,held | integer index vectors | fixed disjoint training/evaluation roles |
+| scf | finite float[133,768] | **already standardized using this fit's training RNA** |
+| scf_mean,scf_sd | float[768] | provenance of that RNA standardization |
+| omics | finite float[133,256] | original pooled protein; worker standardizes using fit only |
 
-The main PDAC experiments use CPTAC133 patients/106 events and fixed nested
-three-fold partitions. Previously explored development results are not new
-external validation. These branches are **minimal portable extractions of
-executed methods**, with source hashes and documented I/O/launch adaptations.
-Synthetic checks validate packaging; they do not constitute a fresh clinical
-rerun or guarantee identical floating-point results on different hardware.
+Do not standardize scf a second time. Do not replace original max pools with token
+means. Inner roles must partition the corresponding outer-training patients.
+The script writes checkpoints and private prediction tables only to your output.
+No historical outcomes or reported scores are encoded as training inputs.
 
-Patient tables, patient-level predictions, pretrained weights, fitted models,
-private manifests, caches and experiment logs are excluded. Obtain data and
-upstream weights under their respective access terms. Single-modality branches
-describe encoder preparation; fusion/KG branches explicitly document the
-private per-fit embedding/token boundary. Preprocessing, feature selection and
-hyperparameter selection belong inside training folds. Never generate fake
-tokens by repeating pooled embeddings.
+The pretrained encoders are **frozen**. Official upstream projects:
+- scFoundation: https://github.com/biomap-research/scFoundation ; the historical
+  checkpoint distribution was https://huggingface.co/genbio-ai/scFoundation
+  (not claimed byte-identical to the author's original SharePoint download).
+- OmicsFM: https://github.com/CompOmics/OmicsFM ; checkpoint distribution
+  https://huggingface.co/rednaSander/omicsfm . The run used `use_esmc=False` and
+  no groups, original vocabulary, per-patient rank/bin inputs, and observed-protein
+  max pooling excluding SST/padding.
 
-Only the retained real-KG configurations are exposed as training methods.
-Necessary frozen input/support checks remain so that extraction does not change
-the executed mathematics. Historical results do not establish KG superiority;
-a statistical kernel is not itself a new CUDA kernel.
+This package starts from prepared frozen embeddings; it does not reimplement the
+encoders, redistribute their weights, download data, or include Tahoe/KG. Generate
+inputs with the upstream runtimes and the original fit-specific preprocessing.
+Selections (1024 candidate genes/proteins), normalization and any learned feature
+processing must be fitted within each training role, never across all patients.
+Native RNA and protein vocabularies are independent: do not join their integer IDs
+by position. Embedding extraction on a held individual is inference, not fitting.
 
-See [THIRD_PARTY.md](THIRD_PARTY.md) for dependency and model-license boundaries.
+Install PyTorch appropriate for the host/CUDA separately, then
+`python -m pip install -r requirements.txt`. Historical GPU runtime: PyTorch
+2.7.1+cu126, FP32, TF32 disabled. Candidate CPU smoke runtime is recorded in the
+delivery QA; matching a different runtime does not guarantee identical patient
+predictions. No patient data, weights, predictions or historical logs are bundled.
+All runtime outputs are private artifacts, not files to commit to this branch.
+
+`SOURCE.json` binds original sources, extraction changes and candidate files.
+Scientific computations are extracted from executed code; the portable file I/O
+and command-line wrapper are new and tested only on synthetic data. Historical
+UNC path checks, approval receipts and deployment manifest chains are omitted.
+The original scientific evaluation remains 133 patients/106 events, repeat 0,
+3 outer folds each with 3 inner folds; this is a reproduction interface, not a
+generic split generator. Do not use held labels to select preprocessing or epochs.
+
+
+Third-party licenses remain separate: scFoundation assets follow their original research/noncommercial model terms; OmicsFM source is Apache-2.0 and the [pinned model card](https://huggingface.co/rednaSander/omicsfm/blob/71d857da1db9de896514322aa8b8d7a85396a698/README.md) declares CC-BY-4.0 for weights. No upstream source tree or weights are bundled. This delivery does not assign a project-wide license; the upstream licenses remain unchanged.
